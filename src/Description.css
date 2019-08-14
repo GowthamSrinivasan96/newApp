@@ -1,0 +1,38 @@
+.device-controls {
+	position: relative;
+  top: 80px;
+  margin-left: 224px;  
+}
+
+.device-details {
+	float: left;
+	width: 485px;
+}
+.device-icon-container {
+  height: 200px;
+  width: 200px;
+}
+.device-container .device-icon {
+width: 355px;
+height: 155px;
+display: table-cell;
+  vertical-align: middle;
+}
+.device-container .device-icon img {
+width: 100%;
+height: auto;
+}
+
+.device-container {
+	border: 1px solid rgb(204, 204, 204);
+    border-radius: 12px;
+    padding: 15px;
+    margin: 5px 29px 15px 23%;
+    /* min-width: 790px; */
+    width: 828px;
+    height: 250px;
+    background-color: rgb(255, 255, 255);
+}
+.device {
+  border: 2px solid rgb(204, 204, 204)
+}

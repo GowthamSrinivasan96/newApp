@@ -3,9 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.1",
+    "mathjs": "^6.0.4",
     "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.11",
+    "react-bootstrap-carousel": "^3.4.2",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-fb-image-grid": "^0.1.5",
+    "react-fontawesome": "^1.6.1",
+    "react-grid-gallery": "^0.5.5",
+    "react-responsive-carousel": "^3.1.50",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "react-validation": "^3.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
