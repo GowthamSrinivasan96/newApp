@@ -47,19 +47,12 @@ const Description = (props) => {
             uniqId = 1;
         }
         newObj.id = uniqId;
-        console.log("newobj",newObj)
         newObj.steps = recipeList;
         if(JSON.parse(localStorage.getItem('recipeCollection'))){
-
-        console.log(JSON.parse(localStorage.getItem('recipeCollection')),JSON.parse(localStorage.getItem('recipeCollection')).length,"recipecollection");
-
             var prevList = JSON.parse(localStorage.getItem('recipeCollection'));
-            console.log("prevList",prevList)
-            console.log("newObjnew",newObj)
             var newlist = [];
             newlist.push(newObj);
             var newRecpList = prevList.concat(newObj);
-            console.log(newRecpList,"newrecplist")
             localStorage.setItem('recipeCollection',JSON.stringify(newRecpList));
          
         }
@@ -67,7 +60,6 @@ const Description = (props) => {
             var newLists = [];
             newLists.push(newObj);
             localStorage.setItem('recipeCollection',JSON.stringify(newLists));
-            console.log("localStorage",JSON.parse(localStorage.getItem('recipeCollection')));
         }
     };
 
@@ -103,7 +95,6 @@ const Description = (props) => {
         setStepNo(stepNo-1);
         recipeStep.pop();
         setRecipeStep(recipeStep);
-        console.log(recipeStep)
     };
     return(
 <div>    

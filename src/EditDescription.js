@@ -14,10 +14,7 @@ const EditDescription = (props) => {
     var [recipeSteps,setRecipeSteps] = useState(props.location.state.editRecipe.steps);
     const forceUpdate = useForceUpdate();
     console.log(recipeSteps,"recipedetail")
-    // const [stepNo,setStepNo]=useState(1);
     var stepNo=props.location.state.editRecipe.steps.length-1;
-    // const [imageUrl,setImageUrl] = useState([]);
-    // const [recipeList,setRecipeList] = useState([]);
     const handleChangeStepDesc = (event,item) => {
         var recpDetail={};
         if(event.target.name ==='image'){
@@ -41,27 +38,17 @@ const EditDescription = (props) => {
         recipeSteps[item].description = recpDetail.description;
         recipeSteps[item].ingredient = recpDetail.ingredient;
         forceUpdate();
-        console.log(recipeSteps[item])
-        // props.location.state.editRecipe.steps = recipeSteps;
-        // setRecipeSteps(recipeSteps);
-        // setStepNo(recipeSteps[item].stepNo)
-        console.log(recipeSteps);
-
     }
     
     const recipeStepAdded = () => {
-    //   setStepNo(stepNo+1);
     stepNo+=1;
       recipeSteps.push({stepNo:stepNo});
       setRecipeSteps(recipeSteps);
-      console.log("stepadded",recipeSteps)
     };
     const recipeStepDelete = () => {
-        // setStepNo(stepNo-1);
         stepNo-=1;
         recipeSteps.pop();
         setRecipeSteps(recipeSteps);
-        console.log(recipeSteps)
     };
 
     function addNotification() {
@@ -79,14 +66,10 @@ const EditDescription = (props) => {
       var newRecpList = recipeList.filter(recipe => {
         return  recipe.id !== props.location.state.editRecipe.id;
       })
-      console.log(newRecpList,"newlist");
       delete props.location.state.editRecipe.steps;
       var newObj = {...props.location.state.editRecipe};
-      console.log("newObj",newObj);
       newObj.steps = recipeSteps ; 
-      console.log("newobj2",newObj)
       newRecpList.push(newObj);
-      console.log("new  RecipeList",newRecpList)
       localStorage.setItem('recipeCollection',JSON.stringify(newRecpList));
 
     }
