@@ -2,8 +2,6 @@ import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
 import './App.css';
 import Accordion from 'react-bootstrap/Accordion';
-import food from "./foodiesfeed.com_pouring-honey-on-pancakes-with-walnuts.jpg";
-import food2 from './foodiesfeed.com_pouring-water-in-a-glass-with-mint-and-lime.jpg';
 import {Button,Card,Toggle} from 'react-bootstrap';
 import FbImageLibrary from 'react-fb-image-grid';
 
@@ -11,22 +9,20 @@ import FbImageLibrary from 'react-fb-image-grid';
 const RecipeView = (props) => { 
     var IMAGES = [];
     const userId = props.location.state.id;
-    console.log("chefdetails",props.location.state.recipe,userId,JSON.parse(localStorage.getItem("recipeCollection")));
-    var recipesAvailable = JSON.parse(localStorage.getItem("recipeCollection"));
     var selectedRecipe = JSON.parse(localStorage.getItem("recipeCollection")).find(function(recipe){
        return  recipe.id === parseInt(userId);
     });
-    console.log("recipes",selectedRecipe)
-    
     var ingredients = selectedRecipe.steps[0].ingredient,descriptionSteps=[];
     selectedRecipe.steps.forEach(element => {
          descriptionSteps.push(element.description);
          IMAGES.push(element.imgUrl);
     });
-    console.log("ingre",ingredients)
     return (
         <>
        <div className="header">
+        <Link to={{pathname: `/editDesc`, state:{editRecipe:selectedRecipe}}}>
+           <button className="btn" style={{float:'right',marginRight:10 +'px',marginTop:8+'px',backgroundColor: '#ffffff',border: 1 + 'px solid #d5dadf'}} >Edit</button>
+        </Link>   
        </div>
        return ([
 <form className="form-horizontal" style={{marginLeft:14 +'%',marginTop: 4 + '%',marginRight: 2 +'%'}}>
@@ -37,9 +33,11 @@ const RecipeView = (props) => {
     </div>
     </div>
     <div className="form-group col-md-6 col">
-      <h4>User Name : {selectedRecipe.username}</h4>
-      <h6>Recipe Title : {selectedRecipe.dishname}</h6>
-      <p style={{width:600+'px'}}>Description : {selectedRecipe.description}.</p>
+      <h5>User Name : <span className="font_color">{selectedRecipe.username}</span></h5>
+      <h5>Recipe Title : <span className="font_color">{selectedRecipe.dishname}</span></h5>
+      <h5>Description :
+      <span style={{width:600+'px',wordBreak:'break-word'}} className="font_color">{selectedRecipe.description}.</span>
+      </h5>
     </div>
     </div>
     <div>

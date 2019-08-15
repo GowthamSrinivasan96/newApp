@@ -6,7 +6,7 @@ import Description from './Description.js';
 import Navigation from './Navigation.js';
 import RecipeList from './RecipeList.js';
 import RecipeView from './RecipeView.js';
-import Videos from './Videos.js';
+import EditDescription from './EditDescription';
 const Router = () => (
 <BrowserRouter>
 <div>
@@ -15,8 +15,9 @@ const Router = () => (
    <Route path="/" component={App} exact/>
    <Route path="/recipe" component={Recipe} />
    <Route path="/rview" component={RecipeView} />
-   <Route path="/recipelist" component={RecipeList} exact/>
+   <Route path="/recipelist" component={()=>{ return (<RecipeList recipes={JSON.parse(localStorage.getItem('recipeCollection'))} />);}} />
    <Route path="/descSteps" component={Description} />
+   <Route path="/editDesc" component={EditDescription} />
   </Switch>
 </div>
 

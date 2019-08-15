@@ -1,24 +1,18 @@
 import React,{useState} from 'react';
-import './bootstrap.min.css';
 import {Link} from 'react-router-dom';
-import App from './App';
 import './App.css';
-var recipesList = [];
-if(JSON.parse(localStorage.getItem('recipeCollection'))) {
-     recipesList = JSON.parse(localStorage.getItem('recipeCollection'));
-    console.log("recipes",recipesList)
-}
 const RecipeList = (props) => {
-    var [recipes,setRecipes] = useState((recipesList && recipesList.length? recipesList : []));
+    var [recipes,setRecipes] = useState((props.recipes && props.recipes.length? props.recipes : []));
 return(
 <div>
 <div className="header">
 </div>    
 <div className="" style={{marginLeft:12+'%'}}>
     <div className="row" style={{marginTop:67+'px',marginLeft:10+'px'}}>
-    { recipes.map((recipe) => {
+      {recipes.length===0? (<div className="col-md-2" style={{margin:'auto'}}>No Recipes Found<Link to={{pathname: `recipe`}}><button  className="btn btn-primary">Add Recipe</button></Link></div>):''}
+    { recipes.map((recipe,idx) => {
       return (
-        <div key={recipe.title} className="col-md-4" style={{ marginBottom:"2rem" }}>
+        <div key={idx} className="col-md-4" style={{ marginBottom:"2rem" }}>
           <div className="recipes__box" >
             <img 
               className="recipe__box-img" style={{width:100+'%',height:160 +'px'}}
@@ -32,12 +26,14 @@ return(
                   { recipe.username }
                 </span></p>
               </div>
-              <button className="recipe_buttons">
-                <Link to={{ 
+              <Link to={{ 
                   pathname: `/rview`,
                   state: { recipe: recipe.dishname,id:recipe.id }
-                }}>View Recipe</Link>
+                }}>
+              <button className="recipe_buttons">
+                View Recipe
               </button>
+              </Link>
           </div>
         </div>
       );

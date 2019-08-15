@@ -33,7 +33,9 @@
   .sidenav a {font-size: 18px;}
 }
 
-.container_1 .slide {
+.container_2 .slide {
     height: 500px !important;
-    margin-left: 12% !important;
   }
+  .container_2 .slide img {
+    height: 600px !important;
+  }  

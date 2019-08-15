@@ -278,7 +278,7 @@ div.content {
 }
 
 .recipe_buttons {
-    border: solid 2px #e74c3c;
+    border: solid 2px cadetblue;
     background: transparent;
     padding: 0.4rem 0.6rem !important;
     margin: 0 0.2rem !important;
@@ -303,7 +303,7 @@ div.content {
   }
   
   .recipes__title {
-    color: #e74c3c;
+    color:cadetblue;
     text-transform: uppercase;
     font-size: 1.1rem;
     padding: 1.8rem 0 0.2rem 0 !important;
@@ -333,4 +333,6 @@ div.content {
     width: 100% !important;
   }
 
-  
+  .font_color{
+    color: cadetblue;
+  }

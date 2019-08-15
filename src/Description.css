@@ -36,3 +36,10 @@ height: auto;
 .device {
   border: 2px solid rgb(204, 204, 204)
 }
+.Toaster__alert_close{
+  padding: 0px !important;
+}
+
+.Toaster__manager-top-right{
+ top:60px !important;
+}
