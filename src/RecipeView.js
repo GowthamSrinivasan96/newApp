@@ -12,6 +12,7 @@ const RecipeView = (props) => {
     var selectedRecipe = JSON.parse(localStorage.getItem("recipeCollection")).find(function(recipe){
        return  recipe.id === parseInt(userId);
     });
+    console.log("selectedRecipe",selectedRecipe)
     var ingredients = selectedRecipe.steps[0].ingredient,descriptionSteps=[];
     selectedRecipe.steps.forEach(element => {
          descriptionSteps.push(element.description);
@@ -35,6 +36,7 @@ const RecipeView = (props) => {
     <div className="form-group col-md-6 col">
       <h5>User Name : <span className="font_color">{selectedRecipe.username}</span></h5>
       <h5>Recipe Title : <span className="font_color">{selectedRecipe.dishname}</span></h5>
+      {selectedRecipe.steps[0].videoLink?(<h5>Video Link :  <a href={selectedRecipe.steps[0].videoLink}>{selectedRecipe.steps[0].videoLink}</a></h5>):''}
       <h5>Description :
       <span style={{width:600+'px',wordBreak:'break-word'}} className="font_color">{selectedRecipe.description}.</span>
       </h5>

@@ -83,6 +83,8 @@ const Description = (props) => {
         }
         recpDetail.ingredient = event.target.name === 'ingredient'?event.target.value:recipeList[item]?recipeList[item].ingredient:'';
         recpDetail.description = event.target.name === 'description'?event.target.value:recipeList[item]?recipeList[item].description:'';
+        if(item===0)
+           recpDetail.videoLink = event.target.name === 'videoLink'?event.target.value:recipeList[item]?recipeList[item].videoLink:'';
         recipeList[item] = recpDetail;
     }
     
@@ -131,16 +133,22 @@ const Description = (props) => {
                          </div>):''
                          }
                          <div className="form-group">
-                             <textarea rows={item===0?4:10} cols="75" name="description"  onChange={(event)=>{handleChangeStepDesc(event,item)}} placeholder="Recipe Step">
+                             <textarea rows={item===0?4:12} cols="75" name="description"  onChange={(event)=>{handleChangeStepDesc(event,item)}} placeholder="Recipe Step">
                              </textarea>
                          </div>
+                         {item===0?(
+                         <div className="form-group">
+                            <textarea rows="1" cols="75" name="videoLink"  onChange={(event)=>{handleChangeStepDesc(event,item)}} placeholder="video link">
+                             </textarea>
+                         </div>):''
+                         }
                      </form>
              </div>
          </div>
          </div>
          </div>
         ])
-    })};
+    })}
     </div>
 </div>
    
